@@ -11,7 +11,7 @@ const dbOptions = {
     port: process.env.DB_PORT || "3306",
     user: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
-    database: process.env.DB_NAME || "noysita_oficial"
+    database: process.env.DB_DATABASE || "noysita_oficial"
 }
 
 // Middlewares
