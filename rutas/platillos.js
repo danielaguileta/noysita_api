@@ -5,7 +5,7 @@ routes.get('/platillos', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_PLATILLO', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_platillo', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
@@ -30,7 +30,7 @@ routes.post('/insertar_platillos',(req, res)=>{
 
     routes.get('/platillos/COD_PLATILLO',(req, res)=>{
         const {COD_PLATILLO} = req.params;
-        const consulta = `SELECT * FROM TBL_PLATILLO WHERE COD_PLATILLO = ?`;
+        const consulta = `SELECT * FROM tbl_platillo WHERE COD_PLATILLO = ?`;
         req.getConnection((err, conn)=>{
                 conn.query(consulta, [COD_PLATILLO], (err, rows)=>{
                     if(err) return res.send(err)
