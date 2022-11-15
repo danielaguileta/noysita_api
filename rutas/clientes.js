@@ -5,7 +5,7 @@ routes.get('/clientes', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_CLIENTES', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_clientes', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
@@ -15,7 +15,7 @@ routes.get('/clientes', (req, res) =>{
 
 routes.get('/clientes/:COD_CLIENTE',(req, res)=>{
     const { COD_CLIENTE} = req.params;
-    const consulta = `SELECT * FROM TBL_CLIENTES WHERE COD_CLIENTE = ?`;
+    const consulta = `SELECT * FROM tbl_clientes WHERE COD_CLIENTE = ?`;
     req.getConnection((err, conn)=>{
             conn.query(consulta, [COD_CLIENTE], (err, rows)=>{
                 if(err) return res.send(err)
