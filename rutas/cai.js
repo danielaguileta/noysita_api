@@ -5,7 +5,7 @@ routes.get('/cai', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_CAI', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_cai', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
@@ -29,7 +29,7 @@ routes.post('/insertar_cai',(req, res)=>{
 
     routes.get('/cai/COD_CAI',(req, res)=>{
         const {COD_CAI} = req.params;
-        const consulta = `SELECT * FROM TBL_CAI WHERE COD_CAI = ?`;
+        const consulta = `SELECT * FROM tbl_cai WHERE COD_CAI = ?`;
         req.getConnection((err, conn)=>{
                 conn.query(consulta, [COD_CAI], (err, rows)=>{
                     if(err) return res.send(err)
