@@ -5,7 +5,7 @@ routes.get('/rol', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_ROLES', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_roles', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
@@ -30,7 +30,7 @@ routes.post('/insertar_rol',(req, res)=>{
 
     routes.get('/rol/COD_ROL',(req, res)=>{
         const {COD_ROL} = req.params;
-        const consulta = `SELECT * FROM TBL_ROLES WHERE COD_ROL = ?`;
+        const consulta = `SELECT * FROM tbl_roles WHERE COD_ROL = ?`;
         req.getConnection((err, conn)=>{
                 conn.query(consulta, [COD_ROL], (err, rows)=>{
                     if(err) return res.send(err)

@@ -5,7 +5,7 @@ routes.get('/proveedores', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_PROVEEDOR', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_proveedor', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
@@ -31,7 +31,7 @@ routes.get('/proveedores', (req, res) =>{
 
     routes.get('/provreedores/COD_PROVEEDOR',(req, res)=>{
         const {COD_PROVEEDOR} = req.params;
-        const consulta = `SELECT * FROM TBL_PROVEEDOR WHERE COD_PROVEEDOR = ?`;
+        const consulta = `SELECT * FROM tbl_proveedor WHERE COD_PROVEEDOR = ?`;
         req.getConnection((err, conn)=>{
                 conn.query(consulta, [COD_PROVEEDOR], (err, rows)=>{
                     if(err) return res.send(err)

@@ -5,7 +5,7 @@ routes.get('/facturas', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_FACTURA', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_factura', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
@@ -28,7 +28,7 @@ routes.post('/insertar_factura',(req, res)=>{
     })
     routes.get('/facturas/COD_FACTURA',(req, res)=>{
         const {COD_FACTURA} = req.params;
-        const consulta = `SELECT * FROM TBL_FACTURA WHERE COD_FACTURA = ?`;
+        const consulta = `SELECT * FROM tbl_factura WHERE COD_FACTURA = ?`;
         req.getConnection((err, conn)=>{
                 conn.query(consulta, [COD_FACTURA], (err, rows)=>{
                     if(err) return res.send(err)

@@ -5,7 +5,7 @@ routes.get('/inventarios', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_INVENTARIO', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_inventario', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
@@ -32,7 +32,7 @@ routes.get('/inventarios', (req, res) =>{
 
     routes.get('/inventarios/COD_PRODUCTO',(req, res)=>{
         const {COD_PRODUCTO} = req.params;
-        const consulta = `SELECT * FROM TBL_INVENTARIO WHERE COD_PRODUCTO = ?`;
+        const consulta = `SELECT * FROM tbl_inventario WHERE COD_PRODUCTO = ?`;
         req.getConnection((err, conn)=>{
                 conn.query(consulta, [COD_PRODUCTO], (err, rows)=>{
                     if(err) return res.send(err)

@@ -5,7 +5,7 @@ routes.get('/empleados', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_EMPLEADOS', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_empleados', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
@@ -30,7 +30,7 @@ routes.post('/insertar_empleado',(req, res)=>{
     
 routes.get('/empleados/COD_EMPLEADO',(req, res)=>{
     const {COD_EMPLEADO} = req.params;
-    const consulta = `SELECT * FROM TBL_EMPLEADOS WHERE COD_EMPLEADO = ?`;
+    const consulta = `SELECT * FROM tbl_empleados WHERE COD_EMPLEADO = ?`;
     req.getConnection((err, conn)=>{
             conn.query(consulta, [COD_EMPLEADO], (err, rows)=>{
                 if(err) return res.send(err)
