@@ -5,7 +5,7 @@ routes.get('/bitacora', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err)
 
-        conn.query('SELECT *FROM TBL_BITACORA', (err, rows)=>{
+        conn.query('SELECT *FROM tbl_bitacora', (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)
