@@ -13,6 +13,18 @@ routes.get('/clientes', (req, res) =>{
     })
 })
 
+routes.get('/total_clientes', (req, res) =>{
+    req.getConnection((err, conn) =>{
+        if(err) return res.send(err)
+
+        conn.query('SELECT COUNT(COD_CLIENTE) FROM tbl_clientes', (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(rows)
+        })
+    })
+})
+
 routes.get('/clientes/:COD_CLIENTE',(req, res)=>{
     const { COD_CLIENTE} = req.params;
     const consulta = `SELECT * FROM tbl_clientes WHERE COD_CLIENTE = ?`;
